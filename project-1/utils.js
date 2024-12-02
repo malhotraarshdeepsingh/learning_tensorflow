@@ -55,7 +55,7 @@ export const startWebcam = (video) => {
       video.onloadedmetadata = () => video.play();
     })
     .catch((err) => {
-      /* handle the error */
+      console.error("Unable to access the camera.", err);
     });
 };
 
