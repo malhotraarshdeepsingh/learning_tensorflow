@@ -1,10 +1,10 @@
 let clickX = new Array();
 let clickY = new Array();
 let clickDrag = new Array();
-let paint;
+let paint = false;
 const labels = ["circle", "triangle"];
-const canvas = document.getElementsByTagName("canvas")[0];
-const context = document.getElementsByTagName("canvas")[0].getContext("2d");
+const canvas = document.getElementsById("canvas")[0];
+const context = canvas.getContext("2d");
 const link = document.getElementById("download-link");
 
 export const resetCanvas = () => {
@@ -65,6 +65,8 @@ const redraw = () => {
     context.stroke();
   }
 };
+
+redraw();
 
 link.addEventListener(
   "click",
