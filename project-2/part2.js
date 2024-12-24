@@ -39,6 +39,7 @@ const init = async () => {
 
 init();
 
+// capture training data
 buttonsContainer.onmousedown = (e) => {
   if (e.target === recordButtons[0]) {
     handleAddExample(0);
@@ -51,6 +52,7 @@ buttonsContainer.onmouseup = () => {
   mouseDown = false;
 };
 
+// add example to training data, continuously add examples and update the total count
 const handleAddExample = async (labelIndex) => {
   mouseDown = true;
   const total = document.getElementById(labels[labelIndex] + "-total");
@@ -65,6 +67,7 @@ const handleAddExample = async (labelIndex) => {
 
 let xs, xy;
 
+// Create training data for each example, capturing the image and the label index for the image
 const addExample = async (index) => {
   let img = await getImage();
   let example = initialModel.predict(img);
@@ -100,6 +103,7 @@ const getImage = async () => {
   return processedImg;
 };
 
+// Train the model
 trainButton.onclick = async () => {
   train();
   statusElement.style.display = "block";

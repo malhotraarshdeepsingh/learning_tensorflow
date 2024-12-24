@@ -10,12 +10,14 @@ const train = async () => {
 
   model.summary();
 
+  // Train the model with the prepared dataset
   await model.fit(trainImages, trainLabels, {
     epochs: 10,
     batchSize: 5,
     validationSplit: 0.2,
   });
 
+  // Evaluate the model using the test dataset
   const { images: testImages, labels: testLabels } = getTestData();
   const evalOutput = model.evaluate(testImages, testLabels);
 

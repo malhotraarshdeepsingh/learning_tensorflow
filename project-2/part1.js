@@ -18,6 +18,7 @@ const init = async () => {
     await webcam.setup();
     await webcam.play();
 
+    // begins a continuous loop for real-time predictions
     window.requestAnimationFrame(loop);
 
     document.getElementById("webcam-container").appendChild(webcam.canvas);
@@ -26,6 +27,7 @@ const init = async () => {
 const loop = async () => {
     Webcam.update();
     await predict();
+    // ensures loop continues
     window.requestAnimationFrame(loop);
 }
 

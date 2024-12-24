@@ -6,6 +6,7 @@ let model;
 
 const init = async () => {
   model = await cocoSsd.load();
+  // Calls the handleFilePicker function and passes the predict function as a callback
   handleFilePicker(predict);
 };
 
